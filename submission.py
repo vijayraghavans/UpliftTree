@@ -181,11 +181,16 @@ class UpliftTreeRegressor:
 givenArray=np.load("example_X.npy",allow_pickle=True)
 givenTarget=np.load("example_y.npy")
 givenTreatment=np.load("example_treatment.npy")
+param_dict = {
+    "max_depth":3,
+    "min_samples_leaf" : 6000,
+    "min_samples_leaf_trated":2500,
+    "min_samples_leaf_control":2500
+}
 
-upliftTree=UpliftTreeRegressor()
+upliftTree=UpliftTreeRegressor(param_dict["max_depth"],param_dict["min_samples_leaf"],param_dict["min_samples_leaf_trated"],param_dict["min_samples_leaf_control"])
 
 upliftTree.fit(givenArray,givenTreatment,givenTarget)
 
 predictions=upliftTree.predict(givenArray)
-
 
