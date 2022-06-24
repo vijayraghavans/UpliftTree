@@ -1,0 +1,49 @@
+Level 0
+root
+Number of items : 50000
+ATE : 0.8401464990780062
+Split_Feature : 0
+Split_Threshold : 1.869800250289363
+
+	Level 1
+	left
+	Number of items : 48500
+	ATE : 0.7987940844377963
+	Split_Feature : 0
+	Split_Threshold : -1.8953617495412467
+
+		Level 2
+		left <leaf>
+		Number of items : 1455
+		ATE : -0.08107121067192219
+		Split_Feature : None
+		Split_Threshold : None
+
+		Level 2
+		right
+		Number of items : 47045
+		ATE : 0.8260064131525298
+		Split_Feature : 0
+		Split_Threshold : 1.5657685921724087
+
+			Level 3
+			left <leaf>
+			Number of items : 45633
+			ATE : 0.7945304539186939
+			Split_Feature : None
+			Split_Threshold : None
+
+			Level 3
+			right <leaf>
+			Number of items : 1412
+			ATE : 1.8432461070035548
+			Split_Feature : None
+			Split_Threshold : None
+
+	Level 1
+	right <leaf>
+	Number of items : 1500
+	ATE : 2.1772079057781544
+	Split_Feature : None
+	Split_Threshold : None
+
