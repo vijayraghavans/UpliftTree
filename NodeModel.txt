@@ -1,49 +1,49 @@
 Level 0
 root
 Number of items : 50000
-ATE : 0.8401464990780062
+ATE : 0.8133621067075059
 Split_Feature : 0
 Split_Threshold : 0.8428329389786856
 
 	Level 1
 	left
 	Number of items : 40000
-	ATE : 0.6429777639903277
+	ATE : 0.45661983599928
 	Split_Feature : 0
 	Split_Threshold : -0.9878097589516122
 
 		Level 2
 		left <leaf>
 		Number of items : 8000
-		ATE : 0.154775640066847
+		ATE : -0.708939125981635
 		Split_Feature : None
 		Split_Threshold : None
 
 		Level 2
 		right
 		Number of items : 32000
-		ATE : 0.7650282949711948
+		ATE : 0.7439039464385134
 		Split_Feature : 1
 		Split_Threshold : 0.8401218986161384
 
 			Level 3
 			left <leaf>
 			Number of items : 25600
-			ATE : 0.6075674714259865
+			ATE : 0.5381690182796856
 			Split_Feature : None
 			Split_Threshold : None
 
 			Level 3
 			right <leaf>
 			Number of items : 6400
-			ATE : 1.394871589152021
+			ATE : 1.5773329275902113
 			Split_Feature : None
 			Split_Threshold : None
 
 	Level 1
 	right <leaf>
 	Number of items : 10000
-	ATE : 1.6288214394287392
+	ATE : 2.2242964961219096
 	Split_Feature : None
 	Split_Threshold : None
 

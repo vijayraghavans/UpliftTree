@@ -23,8 +23,7 @@ class NodeData:
         self.length_control=len([x for x in self.control if x == 1])
         avgTreatment = sum(np.multiply(treatment, target))/self.length_treatment
         avgControl = sum(np.multiply(self.control, target))/self.length_control
-        self.M=(avgTreatment-avgControl)       
-        self.ate=sum(np.multiply(target,treatment))/self.items
+        self.M=(avgTreatment-avgControl)
 
 class Split:
     def __init__(self, left:NodeData=None, right:NodeData=None, deltaDeltaP=None, split_threshold=None, split_feat=None):
@@ -153,12 +152,12 @@ class UpliftTreeRegressor:
                 node.nodeType = node.nodeType.replace(' <leaf>', '')
                 node.split_feat = bestSplit.split_feat
                 node.split_threshold = bestSplit.split_threshold
-                leftNode = Node("left <leaf>",node.depth+1,bestSplit.left.items,bestSplit.left.ate)
-                rightNode = Node("right <leaf>",node.depth+1,bestSplit.right.items,bestSplit.right.ate)
+                leftNode = Node("left <leaf>",node.depth+1,bestSplit.left.items,bestSplit.left.M)
+                rightNode = Node("right <leaf>",node.depth+1,bestSplit.right.items,bestSplit.right.M)
                 node.leftNode = leftNode
                 node.rightNode = rightNode   
                 
-                # print(node.nodeType)
+                # print(nodeData.M)
                 bestSplit.left
 
                 self.buildNode(leftNode,bestSplit.left)    
@@ -166,7 +165,15 @@ class UpliftTreeRegressor:
 
     def fit(self, X: np.ndarray, Treatment: np.ndarray, Y: np.ndarray):
         items=len(Y)
-        ate=sum(np.multiply(Y,Treatment))/items
+        length_treatment=len([x for x in Treatment if x == 1])
+        Control=(Treatment-1)*(-1) 
+        length_control=len([x for x in Control if x == 1])
+        rootTreatment = sum(np.multiply(Treatment, Y))/length_treatment
+        rootControl = sum(np.multiply(Control, Y))/length_control
+        ate=(rootTreatment-rootControl)
+
+
+        # ate=sum(np.multiply(Y,Treatment))/items
         self.rootNode=Node("root",0,items,ate)
         self.rootNodedata=NodeData(X,Treatment,Y)
         
